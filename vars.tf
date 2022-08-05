@@ -12,7 +12,7 @@ variable "machine_type" {
 
 variable "zone" {
   type        = string
-  default     = "europe-central2-a"
+  default     = "us-central1-a"
   description = "(Optional) The zone that the machine should be created in. If it is not provided, the provider zone is used."
 }
 
