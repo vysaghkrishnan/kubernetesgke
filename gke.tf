@@ -2,7 +2,7 @@ provider "google" {
   project = var.project
   region  = var.region
 }
-resource "google_compute_instance" "default" {
+resource "google_compute_instance" "myinstance" {
   name         = var.name
   machine_type = var.machine_type
   zone         = var.zone
