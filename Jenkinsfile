@@ -15,8 +15,10 @@ pipeline {
     stages {
       stage('test')
 	  steps { 
+	      script {  
             withCredentials([file(credentialsID: 'terraformproject-356212' , variable: 'terraformproject-356212')])
-		sh '''
+	      }  
+		  sh '''
 		  gcloud version
 		'''
 	        }
