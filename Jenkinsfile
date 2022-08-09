@@ -22,7 +22,7 @@ pipeline {
 		    
                     currentBuild.displayName = params.version
                 }
-		withCredentials([file(credentialsID: 'terraformproject', variable: 'terraformproject')]){
+		withCredentials([file($class: 'UsernamePasswordMultiBinding', credentialsId: 'terraformproject', variable: 'terraformproject')]){
 	      }
                 sh 'terraform init -input=false'
               
