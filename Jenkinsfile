@@ -13,6 +13,9 @@ pipeline {
     	TF_IN_AUTOMATION = 'true'
 	}
     stages {
+      stage('test')
+	  steps { 
+            withCredentials([file(credentialsID: 'terraformproject-356212' , variable: 'terraformproject-356212')])	
         stage('Plan') {
             steps {
                 script {
