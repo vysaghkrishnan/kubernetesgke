@@ -11,6 +11,9 @@ pipeline {
     environment {
 	TF_WORKSPACE = 'dev' //Sets the Terraform Workspace
     	TF_IN_AUTOMATION = 'true'
+	CLOUDSDK_CORE_PROJECT='terraformproject-356212'
+    	CLIENT_EMAIL=' terraform-service@terraformproject-356212.iam.gserviceaccount.com'
+    	GCLOUD_CREDS=credentials('terraformproject')
 	}
     stages {
 	    
@@ -22,8 +25,7 @@ pipeline {
 		    
                     currentBuild.displayName = params.version
                 }
-		withCredentials([file($class: 'UsernamePasswordMultiBinding', credentialsId: 'terraformproject', variable: 'terraformproject')]){
-	      }
+		
                 sh 'terraform init -input=false'
               
                 sh "terraform plan -input=false"
