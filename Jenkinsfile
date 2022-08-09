@@ -17,7 +17,7 @@ pipeline {
         stage('Plan') {
             steps {
                 script {
-		    withCredentials([file(credentialsID: 'terraformproject-356212', variable: 'terraformproject-356212')]){
+		    
                     currentBuild.displayName = params.version
                 }
                 sh 'terraform init -input=false'
@@ -26,9 +26,12 @@ pipeline {
                 
             }
         }
-	}
-        
-
+	
+	
+	stage('verify') {
+	    steps {
+	      withCredentials([file(credentialsID: 'terraformproject-356212', variable: 'terraformproject-356212')]){
+	      }
         stage('Apply') {
             steps {
                 sh "terraform apply -auto-approve -no-color"
