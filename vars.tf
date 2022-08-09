@@ -12,9 +12,16 @@ variable "machine_type" {
 
 variable "zone" {
   type        = string
+  default     = "us-central1"
+  description = "(Optional) The zone that the machine should be created in. If it is not provided, the provider zone is used."
+}
+
+variable "region" {
+  type        = string
   default     = "us-central1-c"
   description = "(Optional) The zone that the machine should be created in. If it is not provided, the provider zone is used."
 }
+
 
 variable "image" {
   type        = string
