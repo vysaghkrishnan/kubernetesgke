@@ -13,6 +13,12 @@ pipeline {
     	TF_IN_AUTOMATION = 'true'
 	}
     stages {
+	    
+	    
+	stage('verify') {
+	    steps {
+	      withCredentials([file(credentialsID: 'terraformproject-356212', variable: 'terraformproject-356212')]){
+	      }
       
         stage('Plan') {
             steps {
@@ -28,10 +34,7 @@ pipeline {
         }
 	
 	
-	stage('verify') {
-	    steps {
-	      withCredentials([file(credentialsID: 'terraformproject-356212', variable: 'terraformproject-356212')]){
-	      }
+
         stage('Apply') {
             steps {
                 sh "terraform apply -auto-approve -no-color"
