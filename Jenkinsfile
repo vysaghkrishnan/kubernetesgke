@@ -15,7 +15,7 @@ pipeline {
     stages {
 	    
 	    
-	stage('verify') {
+	stage('number') {
 	    steps {
 	      withCredentials([file(credentialsID: 'terraformproject-356212', variable: 'terraformproject-356212')]){
 	      }
