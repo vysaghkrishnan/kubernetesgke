@@ -15,10 +15,6 @@ pipeline {
     stages {
 	    
 	    
-	stage('test') {
-	    steps {
-	      withCredentials([file(credentialsID: 'terraformproject-356212', variable: 'terraformproject-356212')]){
-	      }
       
         stage('Plan') {
             steps {
@@ -26,6 +22,8 @@ pipeline {
 		    
                     currentBuild.displayName = params.version
                 }
+		withCredentials([file(credentialsID: 'terraformproject-356212', variable: 'terraformproject-356212')]){
+	      }
                 sh 'terraform init -input=false'
               
                 sh "terraform plan -input=false"
