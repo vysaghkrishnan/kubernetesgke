@@ -22,7 +22,7 @@ pipeline {
 		    
                     currentBuild.displayName = params.version
                 }
-		withCredentials([file(credentialsID: 'terraformproject-356212', variable: 'terraformproject-356212')]){
+		withCredentials([file(credentialsID: 'terraformproject', variable: 'terraformproject')]){
 	      }
                 sh 'terraform init -input=false'
               
