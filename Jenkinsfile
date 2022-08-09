@@ -40,11 +40,7 @@ pipeline {
                 sh "terraform apply -auto-approve -no-color"
             }
 		
-	post {
-           always {
-      		sh 'gcloud auth revoke $CLIENT_EMAIL'
-    }
-  }
+	
         }
     }
 }
