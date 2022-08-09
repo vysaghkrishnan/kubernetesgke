@@ -13,18 +13,11 @@ pipeline {
     	TF_IN_AUTOMATION = 'true'
 	}
     stages {
-       stage('test')
-	  steps { 
-	      script {  
-            withCredentials([file(credentialsID: 'terraformproject-356212' , variable: 'terraformproject-356212')])
-	      }  
-		  sh '''
-		  gcloud version
-		'''
-	        }
+      
         stage('Plan') {
             steps {
                 script {
+		    withCredentials([file(credentialsID: 'terraformproject-356212' , variable: 'terraformproject-356212')])
                     currentBuild.displayName = params.version
                 }
                 sh 'terraform init -input=false'
