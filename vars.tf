@@ -10,7 +10,11 @@ variable "machine_type" {
   description = "(Required) The machine type to create"
 }
 
-
+variable "zone" {
+  type        = string
+  default     = "us-central1-c"
+  description = "(Optional) The zone that the machine should be created in. If it is not provided, the provider zone is used."
+}
 
 variable "image" {
   type        = string
@@ -53,11 +57,6 @@ variable scratch_disk {
 
 
 
-variable "region" {
-  type        = string
-  default     = "europe-west1-a"
-  description = "Name of Region."
-}
 
 variable "description" {
   type        = string
