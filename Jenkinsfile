@@ -13,7 +13,7 @@ pipeline {
     	TF_IN_AUTOMATION = 'true'
 	CLOUDSDK_CORE_PROJECT='terraformproject-356212'
     	CLIENT_EMAIL=' terraform-service@terraformproject-356212.iam.gserviceaccount.com'
-    	GCLOUD_CREDS=credentials('terraformproject-356212')
+    	GCLOUD_CREDS=credentials('gcloud-creds'')
 	}
     stages {
 	    
